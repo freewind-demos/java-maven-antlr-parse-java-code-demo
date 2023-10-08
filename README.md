@@ -1,16 +1,17 @@
-Java Maven Demo
+Java Maven Antlr Parse Java Code Demo
 =====================
 
-Use maven for Java.
+如何利用antlr生成可以解析java语法的parser，并且利用它来解析一个已有的java文件
 
-How to run:
+- https://github.com/antlr/antlr4/blob/master/doc/getting-started.md
+- Java grammar: https://github.com/antlr/grammars-v4/tree/master/java/java
 
-1. Run `Hello.java` in your IDE.
-2. Use maven plugin `exec-maven-plugin`:
-   ```
-   mvn clean compile exec:java
-   ```
-3. Use maven plugin `maven-dependency-plugin` and `maven-jar-plugin`
-   ```
-   mvn clean package; java -jar target/demo.jar
-   ```
+```
+brew install python
+pip3 install antlr4-tools
+antlr4 JavaLexer.g4 -o src/main/java/generated -package generated
+antlr4 JavaParser.g4 -o src/main/java/generated -package generated
+```
+
+然后在IDE中运行`demo.Hello`，可以看到解析结果
+
